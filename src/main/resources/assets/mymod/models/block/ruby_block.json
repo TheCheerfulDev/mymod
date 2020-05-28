@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "up": "mymod:blocks/ruby_block",
+    "down": "mymod:blocks/ruby_block",
+    "west": "mymod:blocks/ruby_block",
+    "east": "mymod:blocks/ruby_block",
+    "north": "mymod:blocks/ruby_block",
+    "south": "mymod:blocks/ruby_block"
+  }
+}

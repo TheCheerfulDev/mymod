@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " xx",
+    " sx",
+    " s "
+  ],
+  "key": {
+    "x": {
+      "item": "mymod:ruby"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "mymod:ruby_axe",
+    "count": 1
+  }
+}
