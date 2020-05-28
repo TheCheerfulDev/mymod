@@ -37,18 +37,14 @@ public class SpecalBlock extends Block {
             Block.makeCuboidShape(6, 2, 13, 10, 9, 14),
             Block.makeCuboidShape(5, 3, 10, 6, 4, 14),
             Block.makeCuboidShape(10, 3, 10, 11, 4, 14)
-    ).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
     private static final VoxelShape SHAPE_S = Stream.of(
             Block.makeCuboidShape(7, 0, 4, 9, 1, 12),
             Block.makeCuboidShape(6, 1, 2, 10, 2, 14),
             Block.makeCuboidShape(6, 2, 13, 10, 9, 14),
             Block.makeCuboidShape(5, 3, 10, 6, 4, 14),
             Block.makeCuboidShape(10, 3, 10, 11, 4, 14)
-    ).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     private static final VoxelShape SHAPE_E = Stream.of(
             Block.makeCuboidShape(4, 0, 7, 12, 1, 9),
@@ -56,9 +52,7 @@ public class SpecalBlock extends Block {
             Block.makeCuboidShape(2, 2, 6, 3, 9, 10),
             Block.makeCuboidShape(2, 3, 5, 6, 4, 6),
             Block.makeCuboidShape(2, 3, 10, 6, 4, 11)
-    ).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     private static final VoxelShape SHAPE_W = Stream.of(
             Block.makeCuboidShape(4, 0, 7, 12, 1, 9),
@@ -66,9 +60,7 @@ public class SpecalBlock extends Block {
             Block.makeCuboidShape(13, 2, 6, 14, 9, 10),
             Block.makeCuboidShape(10, 3, 10, 14, 4, 11),
             Block.makeCuboidShape(10, 3, 5, 14, 4, 6)
-    ).reduce((v1, v2) -> {
-        return VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR);
-    }).get();
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     public static final DirectionProperty FACING = HorizontalBlock.HORIZONTAL_FACING;
 
@@ -119,14 +111,13 @@ public class SpecalBlock extends Block {
     @Override
     public VoxelShape getShape(final BlockState state, final IBlockReader worldIn, final BlockPos pos, final ISelectionContext context) {
         switch (state.get(FACING)) {
-            case NORTH:
-                return SHAPE_N;
             case SOUTH:
                 return SHAPE_S;
             case EAST:
                 return SHAPE_E;
             case WEST:
                 return SHAPE_W;
+            case NORTH:
             default:
                 return SHAPE_N;
         }
