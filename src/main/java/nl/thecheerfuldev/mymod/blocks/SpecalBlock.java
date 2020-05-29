@@ -88,9 +88,7 @@ public class SpecalBlock extends Block {
     @Override
     public BlockState rotate(final BlockState state, final IWorld world, final BlockPos pos, final Rotation direction) {
         final BlockState newBlockState = state.with(FACING, direction.rotate(state.get(FACING)));
-
         world.setBlockState(pos, newBlockState, 3);
-
         return newBlockState;
     }
 
