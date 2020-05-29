@@ -10,12 +10,9 @@ import net.minecraft.entity.monster.EndermanEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.util.MinecraftVersion;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.ToolType;
-import nl.thecheerfuldev.mymod.util.helpers.ItemNameHelper;
 
 public class RubyOre extends OreBlock {
 
@@ -50,7 +47,7 @@ public class RubyOre extends OreBlock {
         if (willEntitySpawn()) {
             final EndermanEntity enderman = EntityType.ENDERMAN.create(worldIn);
             enderman.setPosition(pos.getX(), pos.getY(), pos.getZ());
-            ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT));
+            final ItemEntity itemEntity = new ItemEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(Items.FLINT));
             worldIn.addEntity(enderman);
             worldIn.addEntity(itemEntity);
             enderman.spawnExplosionParticle();

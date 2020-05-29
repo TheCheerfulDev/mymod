@@ -5,6 +5,7 @@ import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.entity.effect.LightningBoltEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BlockItemUseContext;
 import net.minecraft.state.DirectionProperty;
@@ -21,7 +22,9 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.IWorld;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
@@ -83,9 +86,12 @@ public class SpecalBlock extends Block {
     }
 
     @Override
-    public BlockState rotate(final BlockState state, final Rotation rot) {
-        System.out.println(rot.rotate(state.get(FACING)));
-        return state.with(FACING, rot.rotate(state.get(FACING)));
+    public BlockState rotate(final BlockState state, final IWorld world, final BlockPos pos, final Rotation direction) {
+        final BlockState newBlockState = state.with(FACING, direction.rotate(state.get(FACING)));
+
+        world.setBlockState(pos, newBlockState, 3);
+
+        return newBlockState;
     }
 
     @Override
@@ -100,11 +106,11 @@ public class SpecalBlock extends Block {
 
     @Override
     public ActionResultType onBlockActivated(final BlockState state, final World worldIn, final BlockPos pos, final PlayerEntity player, final Hand handIn, final BlockRayTraceResult hit) {
-//        if (!worldIn.isRemote()) {
-//            final ServerWorld serverWorld = (ServerWorld) worldIn;
-//            final LightningBoltEntity entity = new LightningBoltEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), false);
-//            serverWorld.addLightningBolt(entity);
-//        }
+        if (canBlockActivate(worldIn)) {
+            final ServerWorld serverWorld = (ServerWorld) worldIn;
+            final LightningBoltEntity entity = new LightningBoltEntity(worldIn, pos.getX(), pos.getY(), pos.getZ(), false);
+            serverWorld.addLightningBolt(entity);
+        }
         return ActionResultType.PASS;
     }
 
@@ -121,5 +127,10 @@ public class SpecalBlock extends Block {
             default:
                 return SHAPE_N;
         }
+    }
+
+    private boolean canBlockActivate(final World world) {
+        world.isRemote();
+        return false;
     }
 }
