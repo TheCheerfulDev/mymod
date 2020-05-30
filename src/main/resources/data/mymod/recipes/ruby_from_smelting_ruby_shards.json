@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:smelting",
+  "ingredients": [
+    {
+      "item" : "mymod:ruby_shard",
+      "count" : 9
+    }
+  ],
+  "result" : "mymod:ruby",
+  "count" : 1,
+  "experience" : 5.0,
+  "cookingtime" : 30
+}
