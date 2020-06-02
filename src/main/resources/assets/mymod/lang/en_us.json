@@ -2,6 +2,7 @@
   "block.mymod.ruby_block": "Ruby Block",
   "block.mymod.ruby_ore": "Ruby Ore",
   "block.mymod.specal_block": "The Ugly Chair",
+
   "item.mymod.ruby": "Ruby",
   "item.mymod.ruby_axe": "Ruby Axe",
   "item.mymod.ruby_boots": "Ruby Boots",
@@ -14,5 +15,9 @@
   "item.mymod.ruby_shovel": "Ruby Shovel",
   "item.mymod.ruby_sword": "Ruby Sword",
   "item.mymod.ruby_wrench": "Ruby Wrench",
-  "itemGroup.mymodtab": "MyMod"
+  "item.mymod.quarry": "Quarry",
+
+  "itemGroup.mymodtab": "MyMod",
+
+  "tooltip.mymod.ruby_block.short" : "A block of pure rubies"
 }
