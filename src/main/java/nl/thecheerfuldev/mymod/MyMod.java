@@ -33,6 +33,7 @@ public class MyMod {
         modEventBus.addListener(this::setup);
         modEventBus.addListener(this::doClientStuff);
 
+        // registering tile entities with a deferred registry
         ModTileEntityTypes.TILE_ENTITY_TYPES.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
