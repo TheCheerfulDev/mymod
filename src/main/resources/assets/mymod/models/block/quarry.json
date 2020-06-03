@@ -1,0 +1,11 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "up": "mymod:blocks/quarry_top",
+    "down": "mymod:blocks/quarry_bottom",
+    "west": "mymod:blocks/quarry_side",
+    "east": "mymod:blocks/quarry_side",
+    "north": "mymod:blocks/quarry_side",
+    "south": "mymod:blocks/quarry_side"
+  }
+}

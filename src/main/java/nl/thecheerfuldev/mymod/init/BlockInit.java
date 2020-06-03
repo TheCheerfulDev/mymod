@@ -8,9 +8,11 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.registries.ObjectHolder;
 import nl.thecheerfuldev.mymod.MyMod;
+import nl.thecheerfuldev.mymod.blockitems.QuarryBlockItem;
 import nl.thecheerfuldev.mymod.blockitems.RubyBlockItem;
 import nl.thecheerfuldev.mymod.blockitems.RubyOreItem;
 import nl.thecheerfuldev.mymod.blockitems.SpecalBlockItem;
+import nl.thecheerfuldev.mymod.blocks.QuarryBlock;
 import nl.thecheerfuldev.mymod.blocks.RubyBlock;
 import nl.thecheerfuldev.mymod.blocks.RubyOre;
 import nl.thecheerfuldev.mymod.blocks.SpecalBlock;
@@ -22,11 +24,13 @@ public class BlockInit {
     public static final Block ruby_block = null;
     public static final Block ruby_ore = null;
     public static final Block specal_block = null;
+    public static final Block quarry = null;
 
     @SubscribeEvent
     public static void registerBlocks(final RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new RubyBlock());
         event.getRegistry().register(new RubyOre());
+        event.getRegistry().register(new QuarryBlock());
         event.getRegistry().register(new SpecalBlock());
     }
 
@@ -34,7 +38,14 @@ public class BlockInit {
     public static void registerBlockItems(final RegistryEvent.Register<Item> event) {
         event.getRegistry().register(new RubyBlockItem(ruby_block));
         event.getRegistry().register(new RubyOreItem(ruby_ore));
+        event.getRegistry().register(new QuarryBlockItem(quarry));
         event.getRegistry().register(new SpecalBlockItem(specal_block));
     }
+//
+//    @SubscribeEvent
+//    public static void registerTileEntity(RegistryEvent.Register<TileEntityType<?>> event) {
+//        event.getRegistry().register(TileEntityType.Builder.create(QuarryTileEntity::new, BlockInit.quarry).build(null).setRegistryName("quarry"));
+//
+//    }
 
 }
